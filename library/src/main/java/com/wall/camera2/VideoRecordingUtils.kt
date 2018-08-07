@@ -574,6 +574,11 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
         mAnimator?.start()
     }
 
+    /**
+     * 最大录制时间
+     *
+     * @param maxTime
+     */
     fun setMaxTime(maxTime: Long) {
         this.MAX_TIME = maxTime
     }
