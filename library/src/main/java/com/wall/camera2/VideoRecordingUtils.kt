@@ -45,6 +45,7 @@ import java.util.concurrent.TimeUnit
  * |
  * =================================================================================================
  */
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 class VideoRecordingUtils(private val activity: AppCompatActivity,
                           private val textureView: AutoFitTextureView) {
 
@@ -250,7 +251,7 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
                         }
 
                         override fun onConfigureFailed(session: CameraCaptureSession) {
-                            showToast("Failed")
+                            Log.e(TAG, "Failed")
                         }
                     }, backgroundHandler)
         } catch (e: CameraAccessException) {
@@ -374,7 +375,7 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
             mediaRecorder = MediaRecorder()
             manager.openCamera(mCameraId, stateCallback, null)
         } catch (e: CameraAccessException) {
-            showToast("Cannot access the camera.")
+            Log.e(TAG, "Cannot access the camera.")
             activity.finish()
         } catch (e: InterruptedException) {
             throw RuntimeException("Interrupted while trying to lock camera opening.")
@@ -498,7 +499,7 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
                         }
 
                         override fun onConfigureFailed(cameraCaptureSession: CameraCaptureSession) {
-                            showToast("Failed")
+                            Log.e(TAG, "Failed")
                         }
                     }, backgroundHandler)
         } catch (e: CameraAccessException) {
@@ -510,7 +511,7 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
     }
 
     private fun closePreviewSession() {
-        // TODO
+        // TODO 部分手机异常
         try {
             captureSession?.close()
             captureSession = null
@@ -533,12 +534,10 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
             e.printStackTrace()
         }
 
-        showToast("Video saved: $nextVideoAbsolutePath")
+        Log.i(TAG, "Video saved: $nextVideoAbsolutePath")
         nextVideoAbsolutePath = null
         startPreview()
     }
-
-    private fun showToast(message: String) = Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
 
     /**
      * In this sample, we choose fragment_camera2_video video size with 3x4 aspect ratio. Also, we don't use sizes
@@ -611,8 +610,8 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
             }
 
             override fun onAnimationStart(animation: Animator?) {
-            }
 
+            }
         })
     }
 

@@ -16,7 +16,7 @@
 
     <ProgressBar
         android:id="@+id/recording_progress"
-        style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="0dp"
         android:layout_height="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +28,7 @@
         android:layout_width="8dp"
         android:layout_height="8dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:src="@drawable/shape_circle_red"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/text_progress"
@@ -49,10 +50,11 @@
 
     <ImageView
         android:id="@+id/btn_close"
-        style="@android:style/Widget.Material.Light.Button.Borderless"
+
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:padding="12dp"
         android:src="@drawable/ic_fork_white"
@@ -62,10 +64,11 @@
 
     <ImageView
         android:id="@+id/btn_switch_face"
-        style="@android:style/Widget.Material.Light.Button.Borderless"
+        style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:padding="8dp"
         android:src="@drawable/ic_switch_face_white"
         android:textColor="@android:color/white"
@@ -74,10 +77,11 @@
 
     <ImageView
         android:id="@+id/btn_delete"
-        style="@android:style/Widget.Material.Button.Borderless"
+        style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:padding="6dp"
         android:src="@drawable/ic_delete"
         android:textColor="@android:color/white"
@@ -88,7 +92,7 @@
 
     <ImageView
         android:id="@+id/btn_recording"
-        style="@android:style/Widget.Material.Button.Borderless"
+        style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="80dp"
@@ -101,10 +105,11 @@
 
     <ImageView
         android:id="@+id/btn_confirm"
-        style="@android:style/Widget.Material.Button.Borderless"
+        style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:padding="6dp"
         android:src="@drawable/ic_confirm"
         android:textColor="@android:color/white"
