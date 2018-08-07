@@ -7,17 +7,17 @@ Demo示例
 
 #### 录制前
 <center>
-<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144803.png" width="50%"/>
+<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144803.png" width="30%"/>
 </center/>
     
 #### 录制中
 <center>
-<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144810.png" width="50%"/>
+<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144810.png" width="30%"/>
 </center/>
     
 #### 录制后
 <center>
-<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144815.png" width="50%"/>
+<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144815.png" width="30%"/>
 </center/>
 
 - repositories
@@ -61,3 +61,5 @@ interface OnRecordingListener {
     fun onStop()
 }
 ```
+更多详情，请观看官方Demo源码
+### [Google Video Recording Demo](https://github.com/googlesamples/android-Camera2Video)
