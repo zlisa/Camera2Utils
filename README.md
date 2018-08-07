@@ -7,29 +7,29 @@ Demo示例
 
 #### 录制前
 <center>
-<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144803.png" width="50%"/>
+<img src="https://github.com/zlisa/Camera2Utils/blob/master/image/QQ%E5%9B%BE%E7%89%8720180807144803.png" width="50%"/>
 </center/>
     
 #### 录制中
 <center>
-<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144810.png" width="50%"/>
+<img src="https://github.com/zlisa/Camera2Utils/blob/master/image/QQ%E5%9B%BE%E7%89%8720180807144810.png" width="50%"/>
 </center/>
     
 #### 录制后
 <center>
-<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144815.png" width="50%"/>
+<img src="https://github.com/zlisa/Camera2Utils/blob/master/image/QQ%E5%9B%BE%E7%89%8720180807144815.png" width="50%"/>
 </center/>
 
-repositories
+- repositories
 ```
 maven { url "https://jitpack.io" }
 ```
-dependencies
+- dependencies
 ```
 implementation 'com.github.zlisa:Camera2Utils:0.0.1-alpha2'
 ```
 
-必须实现以下方法
+- 必须实现以下方法
 ```
     override fun onResume() {
         super.onResume()
@@ -41,7 +41,7 @@ implementation 'com.github.zlisa:Camera2Utils:0.0.1-alpha2'
         super.onPause()
     }
 ```
-设置最大录制时间
+1. 设置最大录制时间
 ```
 /**
  * 最大录制时间
@@ -50,7 +50,7 @@ implementation 'com.github.zlisa:Camera2Utils:0.0.1-alpha2'
  */
 fun setMaxTime(max: Long)
 ```
-绑定监听器
+2. 绑定监听器
 ```
 interface OnRecordingListener {
     // 开始录制时
