@@ -3,20 +3,33 @@
 # Camera2工具
 基于Google Video Recording Demo，简单封装Camera2视频录制工具类
 
-![录制前](https://github.com/zlisa/Camera2Utils/image/QQ图片20180807144803.png)
-![录制中](https://github.com/zlisa/Camera2Utils/image/QQ图片20180807144810.png)
-![录制后](https://github.com/zlisa/Camera2Utils/image/QQ图片20180807144815.png)
+Demo示例
 
-repositories
+#### 录制前
+<center>
+<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144803.png" width="30%"/>
+</center/>
+    
+#### 录制中
+<center>
+<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144810.png" width="30%"/>
+</center/>
+    
+#### 录制后
+<center>
+<img src="https://github.com/zlisa/Camera2Utils/raw/master/image/QQ%E5%9B%BE%E7%89%8720180807144815.png" width="30%"/>
+</center/>
+
+- repositories
 ```
 maven { url "https://jitpack.io" }
 ```
-dependencies
+- dependencies
 ```
-implementation 'com.github.zlisa:Camera2Utils:0.0.1-alpha'
+implementation 'com.github.zlisa:Camera2Utils:0.0.1-alpha2'
 ```
 
-必须实现以下方法
+- 必须实现以下方法
 ```
     override fun onResume() {
         super.onResume()
@@ -28,7 +41,7 @@ implementation 'com.github.zlisa:Camera2Utils:0.0.1-alpha'
         super.onPause()
     }
 ```
-设置最大录制时间
+1. 设置最大录制时间
 ```
 /**
  * 最大录制时间
@@ -37,7 +50,7 @@ implementation 'com.github.zlisa:Camera2Utils:0.0.1-alpha'
  */
 fun setMaxTime(max: Long)
 ```
-绑定监听器
+2. 绑定监听器
 ```
 interface OnRecordingListener {
     // 开始录制时
@@ -48,3 +61,5 @@ interface OnRecordingListener {
     fun onStop()
 }
 ```
+更多详情，请观看官方Demo源码
+### [Google Video Recording Demo](https://github.com/googlesamples/android-Camera2Video)
