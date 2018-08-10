@@ -27,7 +27,6 @@ import android.util.SparseIntArray
 import android.view.Surface
 import android.view.TextureView
 import android.view.animation.LinearInterpolator
-import android.widget.Toast
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.Semaphore
@@ -116,6 +115,8 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
      */
     private var sensorOrientation = 0
 
+
+    private var mCameraManager: CameraManager? = null
     /**
      * Output file for video
      */
@@ -344,18 +345,21 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
 
         if (activity.isFinishing) return
 
-        val manager = activity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        if (mCameraManager == null) {
+            mCameraManager = activity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        }
+
         try {
             if (!cameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw RuntimeException("Time out waiting to lock camera opening.")
             }
 
             if (mCameraId == null) {
-                mCameraId = manager.cameraIdList!![0]
+                mCameraId = mCameraManager?.cameraIdList!![0]
             }
 
             // Choose the sizes for camera preview and video recording
-            val characteristics = manager.getCameraCharacteristics(mCameraId)
+            val characteristics = mCameraManager?.getCameraCharacteristics(mCameraId)
             val map = characteristics?.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
                     ?: throw RuntimeException("Cannot get available preview/video sizes")
             sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)
@@ -373,7 +377,7 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
             }
             configureTransform(width, height)
             mediaRecorder = MediaRecorder()
-            manager.openCamera(mCameraId, stateCallback, null)
+            mCameraManager?.openCamera(mCameraId, stateCallback, null)
         } catch (e: CameraAccessException) {
             Log.e(TAG, "Cannot access the camera.")
             activity.finish()
@@ -535,7 +539,7 @@ class VideoRecordingUtils(private val activity: AppCompatActivity,
         }
 
         Log.i(TAG, "Video saved: $nextVideoAbsolutePath")
-        nextVideoAbsolutePath = null
+//        nextVideoAbsolutePath = null
         startPreview()
     }
 

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.wall.camera2.VideoRecordingUtils
 import kotlinx.android.synthetic.main.fragment_video_recording.*
 import java.text.DecimalFormat
@@ -95,6 +96,9 @@ class VideoRecordingFragment : Fragment(), View.OnClickListener,
             }
             R.id.btn_switch_face -> {
                 mVideoRecordingUtils.switchFace()
+            }
+            R.id.btn_confirm -> {
+                Toast.makeText(context, mVideoRecordingUtils.getVideoPath(), Toast.LENGTH_SHORT).show()
             }
         }
     }
